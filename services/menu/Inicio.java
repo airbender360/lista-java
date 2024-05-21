@@ -31,7 +31,16 @@ public class Inicio {
                     }
                     case 2:{
                         if (nuevaLista.getCantidad() != 0){
-                            System.out.println("Opcion 3");
+                            
+                            try {
+                                Ui.interfazMostrarProductos(nuevaLista.getLista(), nuevaLista.getCantidad());
+                                int numeroProducto = interfaz.interfazEliminarProducto(nuevaLista.getCantidad());
+                                nuevaLista.eliminarProducto(numeroProducto);
+                            }
+                            finally {
+                                System.out.println("Se ha eliminado el producto con éxito.\n\n");
+                            }
+                            break;
                         }
                         else{
                             System.out.println("Opción inválida, por favor agregue un producto.");

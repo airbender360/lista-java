@@ -100,8 +100,35 @@ public class Ui {
         }
         return numeroItem;
         
-        
     }
+
+    public int interfazEliminarProducto(int cantidadProductos){
+        int numeroItem = 0;
+        while (numeroItem == 0){
+            System.out.println("Digite el número del producto que desea eliminar o digite '0' para salir:");
+            numeroItem = Integer.parseInt(scanner.nextLine());
+            if ((numeroItem <= cantidadProductos) && (numeroItem > 0)){
+                System.out.println("Producto #" + numeroItem + " seleccionado.\nEstá seguro de querer continuar con la eliminación?\n1. Sí.\n2. No.");
+                int confirmacion = Integer.parseInt(scanner.nextLine());
+                if (confirmacion == 1){
+                    return numeroItem;
+                }
+                else {
+                    break;
+                }
+            }
+            else if (numeroItem == 0) {
+                System.out.println("Ha elegido salir.");
+                break;
+            }
+            else {
+                System.out.println("Ese número de producto no existe");
+                numeroItem = 0;
+            }
+        }
+        return numeroItem;
+    }
+    
 
     public static void interfazMostrarProductos(List<Producto> listaProductos, int cantidadProductos){
         System.out.println("------------ Productos: -- " + cantidadProductos + " ------");

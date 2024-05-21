@@ -18,6 +18,11 @@ public class Lista {
         actualizarCantidad();
     }
 
+    public void eliminarProducto(int numeroProducto){
+        listaProductos.remove(numeroProducto-1);
+        actualizarCantidad();
+    }
+
     public void modificarProducto(int numeroProducto, Object atributo, Object dato){
         int entero = (int) atributo;
         Producto productoModificar = listaProductos.get(numeroProducto-1);
